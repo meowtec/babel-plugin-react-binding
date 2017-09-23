@@ -1,0 +1,22 @@
+{
+  "presets": ["env", "stage-0"],
+  "plugins": ["transform-runtime"],
+  "env": {
+    "test": {
+      "presets": [
+        "react"
+      ],
+      "plugins": [
+        ".",
+        [
+          "module-resolver",
+          {
+            "alias": {
+              "babel-plugin-react-binding": "."
+            }
+          }
+        ]
+      ]
+    }
+  }
+}

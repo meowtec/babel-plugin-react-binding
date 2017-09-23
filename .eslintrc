@@ -1,0 +1,18 @@
+{
+  "parser": "babel-eslint",
+  "extends": ["standard", "standard-react"],
+  "env": {
+    "browser": true,
+    "jest/globals": true
+  },
+  "globals": {
+  },
+  "plugins": [
+    "jest"
+  ],
+  "rules": {
+    "comma-dangle": ["error", "always-multiline"],
+    "react/no-unused-prop-types": "warn",
+    "react/prop-types": 0
+  }
+}

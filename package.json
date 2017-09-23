@@ -1,0 +1,44 @@
+{
+  "name": "babel-plugin-react-binding",
+  "version": "0.10.0",
+  "description": "babel plugin for React two-way bind.",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "babel src -d lib",
+    "prepack": "npm run build",
+    "test": "npm run build && jest",
+    "lint": "eslint ./src/ ./test/ --ext .jsx,.js --fix"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "babel-plugin-syntax-jsx": "^6.18.0",
+    "babel-runtime": "^6.26.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-eslint": "^8.0.0",
+    "babel-plugin-module-resolver": "^2.7.1",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "enzyme": "^2.9.1",
+    "eslint": "^4.7.2",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-config-standard-react": "^5.0.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jest": "^21.1.0",
+    "eslint-plugin-node": "^5.1.1",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-react": "^7.3.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "jest": "^21.1.0",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-test-renderer": "^15.6.1"
+  },
+  "eslintIgnore": [
+    "test/fixtures/"
+  ]
+}
