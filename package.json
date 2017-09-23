@@ -9,8 +9,13 @@
     "test": "npm run build && jest",
     "lint": "eslint ./src/ ./test/ --ext .jsx,.js --fix"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "meowtec<bertonzh@gmail.com>",
+  "homepage": "https://github.com/meowtec/babel-plugin-react-binding",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/meowtec/babel-plugin-react-binding.git"
+  },
+  "license": "MIT",
   "dependencies": {
     "babel-plugin-syntax-jsx": "^6.18.0",
     "babel-runtime": "^6.26.0"
