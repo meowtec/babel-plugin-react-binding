@@ -37,7 +37,7 @@ npm i babel-plugin-react-binding --save-dev
 
 When the event triggered, `react-binding` will receive the new value, then execute `setState()` (or `props.onChange()`) to update the value.
 
-You can think of it as (if you write the binding by hand):
+You can think of it as (if you write by hand):
 
 ```javascript
 <input
