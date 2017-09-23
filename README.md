@@ -1,6 +1,9 @@
 # babel-plugin-react-binding
 
-Two way binding [syntax] sugar for React.
+Two way binding sugar for React.
+
+![Travis](https://travis-ci.org/meowtec/babel-plugin-react-binding.svg?branch=master)
+![codecov](https://codecov.io/gh/meowtec/babel-plugin-react-binding/branch/master/graph/badge.svg)
 
 ## Usage
 
