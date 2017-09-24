@@ -13,7 +13,7 @@ Two way binding sugar for React.
 npm i babel-plugin-react-binding --save-dev
 ```
 
-####  add to `.babelrc`
+####  add `react-binding` to `.babelrc`
 
 ```js
 {
@@ -36,9 +36,7 @@ npm i babel-plugin-react-binding --save-dev
 
 ## Principle
 
-`babel-plugin-react-binding` will automatically add `value` and `onChange` props to Element.
-
-When the event triggered, `react-binding` will receive the new value, then execute `setState()` (or `props.onChange()`) to update the value.
+`react-binding` will automatically add `value` and `onChange` props to React Element. After the event triggered, `react-binding` will receive the new value, and execute `setState()` to update the value.
 
 You can think of it as (if you write by hand):
 
