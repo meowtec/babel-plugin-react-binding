@@ -32,7 +32,7 @@ const getValue = e => {
   return e
 }
 
-const shallwClone = node => {
+const shallowClone = node => {
   if (Array.isArray(node)) {
     return [...node]
   } else {
@@ -52,14 +52,14 @@ const deepUpdate = (node, path, leaf) => {
     return leaf
   }
 
-  node = shallwClone(node)
+  node = shallowClone(node)
   let root = node
 
   path.forEach((key, index) => {
     if (index === path.length - 1) {
       node[key] = leaf
     } else {
-      node[key] = shallwClone(node[key])
+      node[key] = shallowClone(node[key])
       node = node[key]
     }
   })
