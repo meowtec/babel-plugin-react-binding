@@ -85,20 +85,20 @@ export default function (babel) {
       const { attrName = defaultAttrName } = this.opts
       const bindingValue = getAndRemoveBindingAttr(nodePath.node, attrName)
 
-      if (bindingValue) {
-        const extracted = extractBindingValue(bindingValue, attrName)
+      if (!bindingValue) return
 
-        let wrappedExpr = types.callExpression(
-          state.addImport('babel-plugin-react-binding/lib/runtime', 'default', 'binding'),
-          [nodePath.node, bindingValue.expression, ...extracted],
-        )
+      const extracted = extractBindingValue(bindingValue, attrName)
 
-        if (nodePath.parent.type === 'JSXElement') {
-          wrappedExpr = types.jSXExpressionContainer(wrappedExpr)
-        }
+      let wrappedExpr = types.callExpression(
+        state.addImport('babel-plugin-react-binding/lib/runtime', 'default', 'binding'),
+        [nodePath.node, bindingValue.expression, ...extracted],
+      )
 
-        nodePath.replaceWith(wrappedExpr)
+      if (nodePath.parent.type === 'JSXElement') {
+        wrappedExpr = types.jSXExpressionContainer(wrappedExpr)
       }
+
+      nodePath.replaceWith(wrappedExpr)
     },
   }
 
