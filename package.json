@@ -1,7 +1,7 @@
 {
   "name": "babel-plugin-react-binding",
   "version": "0.10.0",
-  "description": "babel plugin for React two-way bind.",
+  "description": "babel plugin for React two-way bind",
   "main": "lib/index.js",
   "scripts": {
     "build": "babel src -d lib",
@@ -9,6 +9,12 @@
     "test": "npm run build && jest",
     "lint": "eslint ./src/ ./test/ --ext .jsx,.js --fix"
   },
+  "keywords": [
+    "babel",
+    "babel plugin",
+    "react",
+    "two way binding"
+  ],
   "author": "meowtec<bertonzh@gmail.com>",
   "homepage": "https://github.com/meowtec/babel-plugin-react-binding",
   "repository": {
