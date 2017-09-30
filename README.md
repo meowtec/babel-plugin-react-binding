@@ -34,6 +34,31 @@ npm i babel-plugin-react-binding --save-dev
 </div>
 ```
 
+#### binding to redux example
+
+```javascript
+class App extends React.Component {
+  render () {
+    return (
+      <input id='input' binding={this.props.input} />
+    )
+  }
+}
+
+export default connect(
+  state => state.form,
+  dispatch => ({
+    onChange (value, key) {
+      dispatch({
+        type: 'UPDATE_FORM',
+        key,
+        value,
+      })
+    },
+  })
+)(App)
+```
+
 ## Principle
 
 `react-binding` will automatically add `value` and `onChange` props to React Element. After the event triggered, `react-binding` will receive the new value, and execute `setState()` to update the value.
