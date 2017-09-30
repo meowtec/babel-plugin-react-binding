@@ -90,11 +90,11 @@ const setState = (instance, e, [key, ...rest]) => {
  * @param {string} key
  * @param {(string|number)[]} rest
  */
-const setProps = (instance, e, [key, ...rest], eventName) => {
+const setProps = (instance, e, [key, ...rest]) => {
   const { props } = instance
   const leaf = getValue(e)
   const prop = props[key]
-  const { propName } = getbindingDescriptor(instance)
+  const { propName, eventName } = getInstanceBindingDescriptor(instance)
 
   if (propName !== key) {
     warn(
@@ -119,7 +119,7 @@ const setProps = (instance, e, [key, ...rest], eventName) => {
  * @param {JSX.Element} element
  * @return {{propName: string, eventName: string}}
  */
-const getbindingDescriptor = element => {
+const getBindingDescriptor = element => {
   const { type, props } = element
   let eventName = 'onChange'
   let propName = 'value'
@@ -143,6 +143,23 @@ const getbindingDescriptor = element => {
 }
 
 /**
+ * @param {React.Component} instance
+ */
+const getInstanceBindingDescriptor = instance => {
+  const { bindingDescriptor = {} } = instance.constructor
+
+  const {
+    prop: propName = 'value',
+    event: eventName = 'onChange',
+  } = bindingDescriptor
+
+  return {
+    propName,
+    eventName,
+  }
+}
+
+/**
  * set correct `onChange` `value` props to JSX Element
  *
  * @param {any} value
@@ -153,7 +170,7 @@ const getbindingDescriptor = element => {
  */
 const binding = (element, value, self, space, ...path) => {
   const { props } = element
-  const { propName, eventName } = getbindingDescriptor(element)
+  const { propName, eventName } = getBindingDescriptor(element)
 
   const selfListener = props[eventName]
 
@@ -164,7 +181,7 @@ const binding = (element, value, self, space, ...path) => {
       }
 
       if (space === 'props') {
-        setProps(self, e, path, eventName)
+        setProps(self, e, path)
       }
 
       selfListener && selfListener(e)
