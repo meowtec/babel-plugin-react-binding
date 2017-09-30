@@ -1,6 +1,6 @@
 {
   "name": "babel-plugin-react-binding",
-  "version": "0.10.0",
+  "version": "0.10.1",
   "description": "babel plugin for React two-way bind",
   "main": "lib/index.js",
   "scripts": {
