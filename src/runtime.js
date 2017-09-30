@@ -1,8 +1,8 @@
 import React from 'react'
 
-const warn = (...args) => {
-  typeof console !== 'undefined' && console.warn(...args)
-}
+// const warn = (...args) => {
+//   typeof console !== 'undefined' && console.warn(...args)
+// }
 
 /**
  * give a event, get the new value that the event contains.
@@ -94,17 +94,11 @@ const setProps = (instance, e, [key, ...rest]) => {
   const { props } = instance
   const leaf = getValue(e)
   const prop = props[key]
-  const { propName, eventName } = getInstanceBindingDescriptor(instance)
+  const { eventName } = getInstanceBindingDescriptor(instance)
 
-  if (propName !== key) {
-    warn(
-      `'binding={props.X}' can be used only if ` +
-      `X is 'value' or the custom two-way prop ` +
-      `(defined with bindingDescriptor.prop)`
-    )
-  }
+  const eventMethod = props[eventName]
 
-  props[eventName] && props[eventName](deepUpdate(prop, rest, leaf))
+  eventMethod && eventMethod(deepUpdate(prop, rest, leaf), key)
 }
 
 /**

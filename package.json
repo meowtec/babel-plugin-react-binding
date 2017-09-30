@@ -47,7 +47,9 @@
     "jest": "^21.1.0",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
-    "react-test-renderer": "^15.6.1"
+    "react-redux": "^5.0.6",
+    "react-test-renderer": "^15.6.1",
+    "redux": "^3.7.2"
   },
   "eslintIgnore": [
     "test/fixtures/"
